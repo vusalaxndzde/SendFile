@@ -1,4 +1,4 @@
-package org.Util;
+package org.util;
 
 import java.io.DataOutputStream;
 import java.io.IOException;

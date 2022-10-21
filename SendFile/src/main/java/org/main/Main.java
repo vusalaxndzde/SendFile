@@ -1,7 +1,7 @@
 package org.main;
 
-import org.Util.FileUtil;
-import org.Util.TCPClient;
+import org.util.FileUtil;
+import org.util.TCPClient;
 
 import java.util.Scanner;
 
