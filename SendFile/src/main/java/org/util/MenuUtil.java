@@ -1,17 +1,14 @@
 package org.util;
 
+import org.bean.Config;
+
 import java.util.Scanner;
 
 public class MenuUtil {
 
     public static void showMenu() {
 
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Name: ");
-        String name = sc.nextLine();
-        System.out.print("Surname: ");
-        String surname = sc.nextLine();
-        System.out.println("Welcome, " + name + " " + surname);
+        getInfo();
 
         byte[] data = getData();
 
@@ -20,14 +17,31 @@ public class MenuUtil {
 
     }
 
-    public static byte[] getData() {
+    public static void getInfo() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Name: ");
+        String name = sc.nextLine();
+        System.out.print("Surname: ");
+        String surname = sc.nextLine();
+
+        String from = name + " " + surname;
+        Config.setFrom(from);
+        System.out.println("Welcome, " + from);
+    }
+
+    public static String getDir() {
         Scanner sc = new Scanner(System.in);
         System.out.print("File directory: ");
-        String dir = sc.nextLine();
+        return sc.nextLine();
+    }
+
+    public static byte[] getData() {
+        String dir = getDir();
         byte[] data = FileUtil.readFile(dir);
         if (data == null) {
             return getData();
         } else {
+            Config.setFileDir(dir);
             return data;
         }
     }
