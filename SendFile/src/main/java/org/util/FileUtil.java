@@ -12,7 +12,6 @@ public class FileUtil {
             return fis.readAllBytes();
         } catch (IOException e) {
             System.out.println("File not found!");
-            System.exit(0);
         }
         return null;
     }
